@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maybe OSINT Bot - Legal Documents</title>
+    <style>
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body style="background-color: white; font-family: Arial, sans-serif; margin: 20px;">
+    
+    <!-- Loading Screen -->
+    <div id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Language Selection Section -->
+    <div id="language-selection" style="text-align: center; margin-top: 100px;">
+        <h2 style="font-weight: bold; margin-bottom: 40px;">Select language / Выберите язык</h2>
+        
+        <div style="display: flex; justify-content: center; gap: 50px; margin-bottom: 40px;">
+            <a href="#" onclick="showContent('english')" style="text-decoration: none; text-align: center;">
+                <img src="https://flagcdn.com/w320/us.png" 
+                     alt="English" 
+                     width="120" 
+                     height="80"
+                     style="border: 1px solid #ccc; border-radius: 5px;">
+                <p style="font-weight: bold; margin-top: 10px;">English</p>
+            </a>
+            
+            <a href="#" onclick="showContent('russian')" style="text-decoration: none; text-align: center;">
+                <img src="https://flagcdn.com/w320/ru.png" 
+                     alt="Русский" 
+                     width="120" 
+                     height="80"
+                     style="border: 1px solid #ccc; border-radius: 5px;">
+                <p style="font-weight: bold; margin-top: 10px;">Русский</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- English Content (hidden by default) -->
+    <div id="english-content" style="display: none;">
+        <!-- English Privacy Policy -->
+        <h1 style="text-align: center; color: #333;">PRIVACY POLICY</h1>
+        <h3 style="text-align: center; color: #666;">for Maybe OSINT Bot (@MaybeNickBot)</h3>
+        
+        <div style="margin: 40px auto; max-width: 800px;">
+            <h4>Effective Date: February 4, 2026</h4>
+            
+            <h3>1. GENERAL PROVISIONS</h3>
+            <p>1.1. Maybe OSINT Bot (hereinafter - "Bot", "Service") is an automated service for searching public information on the internet.</p>
+            <p>1.2. Bot Administrator: an individual managing the Bot's operation on Telegram.</p>
+            <p>1.3. This Privacy Policy (hereinafter - "Policy") defines the procedure for processing and protecting user information of the Bot.</p>
+            <p>1.4. By using the Bot, you confirm your agreement with the terms of this Policy.</p>
+            
+            <h3>2. INFORMATION COLLECTION</h3>
+            <p>2.1. The Bot collects and processes the following user data:</p>
+            <p><strong>2.1.1. Technical Information:</strong></p>
+            <ul>
+                <li>Telegram User ID</li>
+                <li>Telegram Username</li>
+                <li>Interface Language</li>
+                <li>Date and Time of Requests</li>
+                <li>IP Address (indirectly via Telegram API)</li>
+            </ul>
+            <p><strong>2.1.2. Operational Information:</strong></p>
+            <ul>
+                <li>Search Query History (only usernames)</li>
+                <li>Number of Searches Performed</li>
+                <li>Date and Time of Each Search</li>
+                <li>Search Results (publicly available data)</li>
+            </ul>
+            <p>2.2. The Bot does NOT collect:</p>
+            <ul>
+                <li>Passwords</li>
+                <li>Financial Information</li>
+                <li>Personal Messages</li>
+                <li>Contact Details (phone numbers, addresses)</li>
+                <li>Biometric Data</li>
+                <li>Location Data</li>
+            </ul>
+            
+            <h3>3. PURPOSES OF INFORMATION COLLECTION</h3>
+            <p>3.1. The collected information is used exclusively for:</p>
+            <ul>
+                <li>Providing the Bot's functionality</li>
+                <li>Improving service quality</li>
+                <li>Statistical analysis (anonymized)</li>
+                <li>Preventing abuse</li>
+            </ul>
+            
+            <h3>4. DATA STORAGE</h3>
+            <p>4.1. All data is stored on secure servers.</p>
+            <p>4.2. Local data files are encrypted.</p>
+            <p>4.3. Search history is stored for a maximum of 200 entries per user.</p>
+            <p>4.4. PDF reports are stored for up to 24 hours, after which they are automatically deleted.</p>
+            <p>4.5. Users can request deletion of their data by contacting the administrator.</p>
+            
+            <h3>5. DATA PROCESSING IN DIFFERENT COUNTRIES</h3>
+            <p>5.1. For users from the Russian Federation:</p>
+            <ul>
+                <li>Data processing is carried out in accordance with Federal Law No. 152-FZ "On Personal Data"</li>
+                <li>Data is stored on the territory of the Russian Federation</li>
+                <li>Users have the right to withdraw consent to the processing of personal data</li>
+            </ul>
+            <p>5.2. For users from the USA:</p>
+            <ul>
+                <li>Data processing is carried out in accordance with the legislation of the state where the user is located</li>
+                <li>COPPA (Children's Online Privacy Protection Act) principles apply</li>
+                <li>Users from California have additional rights under CCPA</li>
+            </ul>
+            <p>5.3. For users from Ukraine:</p>
+            <ul>
+                <li>Data processing is regulated by the Law of Ukraine "On Personal Data Protection"</li>
+                <li>Users have the right to access their data and correct it</li>
+            </ul>
+            <p>5.4. For users from Belarus:</p>
+            <ul>
+                <li>Data processing is carried out according to the Law of the Republic of Belarus "On Information, Informatization and Information Protection"</li>
+                <li>Data localization requirements are observed</li>
+            </ul>
+            <p>5.5. For users from Kazakhstan:</p>
+            <ul>
+                <li>The Law of the Republic of Kazakhstan "On Personal Data and Their Protection" applies</li>
+                <li>Confidentiality of personal data is ensured</li>
+            </ul>
+            <p>5.6. For users from Poland:</p>
+            <ul>
+                <li>Data processing complies with GDPR (General Data Protection Regulation of the EU)</li>
+                <li>Users have extended rights to deletion and data portability</li>
+            </ul>
+            <p>5.7. For users from Dagestan (Russian Federation):</p>
+            <ul>
+                <li>The same norms apply as for the entire territory of the Russian Federation</li>
+                <li>Cultural and religious characteristics of the region are taken into account</li>
+            </ul>
+            
+            <h3>6. DATA TRANSFER TO THIRD PARTIES</h3>
+            <p>6.1. The Bot does NOT transfer user data to third parties, except for:</p>
+            <ul>
+                <li>Legal requirements</li>
+                <li>Requests from law enforcement agencies</li>
+                <li>Protection of the Bot's rights and security</li>
+            </ul>
+            <p>6.2. Only publicly available APIs and services are used to perform searches.</p>
+            
+            <h3>7. SECURITY</h3>
+            <p>7.1. Technical data protection measures are applied:</p>
+            <ul>
+                <li>Encryption of local files</li>
+                <li>Regular backups</li>
+                <li>Protection against DDoS attacks</li>
+                <li>Monitoring of unauthorized access</li>
+            </ul>
+            <p>7.2. Only Bot administrators have access to the data.</p>
+            
+            <h3>8. USER RIGHTS</h3>
+            <p>8.1. Each user has the right to:</p>
+            <ul>
+                <li>Access their data</li>
+                <li>Correction of inaccurate data</li>
+                <li>Deletion of their data</li>
+                <li>Restriction of processing</li>
+                <li>Data portability</li>
+                <li>Withdrawal of consent</li>
+            </ul>
+            <p>8.2. To exercise these rights, please contact the administrator: @MaybeNickSupportBot</p>
+            
+            <h3>9. COOKIES AND ANALYTICS</h3>
+            <p>9.1. The Bot does NOT use cookies.</p>
+            <p>9.2. Statistics are collected in an anonymized form.</p>
+            
+            <h3>10. AGE RESTRICTIONS</h3>
+            <p>10.1. The Bot is intended for users over 13 years old.</p>
+            <p>10.2. For users aged 13 to 18, parental consent is required.</p>
+            <p>10.3. The Bot administration is not responsible for the use of the service by minors.</p>
+            
+            <h3>11. POLICY CHANGES</h3>
+            <p>11.1. The administration reserves the right to change this Policy.</p>
+            <p>11.2. Changes take effect from the moment of publication in the Bot.</p>
+            <p>11.3. Users will be notified of significant changes.</p>
+            
+            <h3>12. CONTACT INFORMATION</h3>
+            <p>12.1. For data protection questions:<br>
+            Telegram: @MaybeNickSupportBot</p>
+            
+            <h3>13. DISPUTE RESOLUTION</h3>
+            <p>13.1. All disputes are resolved through negotiations.</p>
+            <p>13.2. If agreement is not reached, the dispute is referred to the court at the location of the administration.</p>
+            <p>13.3. Applicable law depends on the user's country.</p>
+            
+            <h3>14. FINAL PROVISIONS</h3>
+            <p>14.1. Using the Bot means full agreement with this Policy.</p>
+            <p>14.2. The administration is not responsible for user actions with the obtained information.</p>
+            <p>14.3. The Bot is intended only for legal OSINT research purposes.</p>
+            
+            <hr style="margin: 50px 0;">
+            
+            <!-- English Terms of Service -->
+            <h1 style="text-align: center; color: #333;">TERMS OF SERVICE</h1>
+            <h3 style="text-align: center; color: #666;">for Maybe OSINT Bot (@MaybeNickBot)</h3>
+            
+            <h4>Effective Date: February 4, 2026</h4>
+            
+            <h3>1. DEFINITIONS</h3>
+            <p>1.1. Maybe OSINT Bot (hereinafter - "Bot", "Service") - an automated service for searching public information.</p>
+            <p>1.2. User - an individual using the Bot.</p>
+            <p>1.3. Administration - the owner and operator of the Bot.</p>
+            <p>1.4. Content - information obtained as a result of searching through the Bot.</p>
+            
+            <h3>2. ACCEPTANCE OF TERMS</h3>
+            <p>2.1. By using the Bot, you confirm that:</p>
+            <ul>
+                <li>You are at least 13 years old</li>
+                <li>You have read this Agreement</li>
+                <li>You agree to all terms</li>
+                <li>You take responsibility for using the Service</li>
+            </ul>
+            <p>2.2. If you do not agree with the terms - immediately stop using the Bot.</p>
+            
+            <h3>3. USAGE RULES</h3>
+            <p>3.1. Permitted actions:</p>
+            <ul>
+                <li>Searching for public information about usernames</li>
+                <li>Using results for legal purposes</li>
+                <li>Contacting support in case of problems</li>
+            </ul>
+            <p>3.2. Prohibited actions:</p>
+            <ul>
+                <li>Searching for information about minors without parental consent</li>
+                <li>Using for persecution or bullying</li>
+                <li>Violation of intellectual property rights</li>
+                <li>Automated requests (scraping)</li>
+                <li>Bypassing restrictions and blocks</li>
+                <li>Spreading false information</li>
+                <li>Using for fraud</li>
+                <li>Violation of the laws of your country</li>
+            </ul>
+            
+            <h3>4. ACCESS RESTRICTIONS</h3>
+            <p>4.1. The Administration has the right to restrict user access in case of:</p>
+            <ul>
+                <li>Violation of this Agreement</li>
+                <li>Suspicion of illegal activity</li>
+                <li>Technical problems</li>
+                <li>Bot updates</li>
+            </ul>
+            <p>4.2. Blocking may be applied without prior notice.</p>
+            
+            <h3>5. INTELLECTUAL PROPERTY</h3>
+            <p>5.1. All rights to the Bot belong to the Administration.</p>
+            <p>5.2. Search results are public information.</p>
+            <p>5.3. Commercial use of the Bot is prohibited without permission.</p>
+            
+            <h3>6. LIABILITY</h3>
+            <p>6.1. The Administration does NOT guarantee:</p>
+            <ul>
+                <li>Completeness and accuracy of results</li>
+                <li>Uninterrupted operation of the Service</li>
+                <li>Data preservation in case of failures</li>
+                <li>Absence of errors in reports</li>
+            </ul>
+            <p>6.2. The User uses the Bot at their own risk.</p>
+            <p>6.3. The Administration is not responsible for:</p>
+            <ul>
+                <li>User actions with obtained information</li>
+                <li>Violations of laws by users</li>
+                <li>Damage caused by using the Bot</li>
+                <li>Technical problems of the user</li>
+            </ul>
+            
+            <h3>7. COUNTRY-SPECIFIC RESTRICTIONS</h3>
+            <p>7.1. USA:</p>
+            <ul>
+                <li>Use for violation of CFAA (Computer Fraud and Abuse Act) is prohibited</li>
+                <li>Compliance with state privacy laws</li>
+                <li>Use for stalking is prohibited</li>
+            </ul>
+            <p>7.2. Russia:</p>
+            <ul>
+                <li>Compliance with Federal Law No. 149-FZ "On Information"</li>
+                <li>Distribution of extremist materials is prohibited</li>
+                <li>Compliance with the law "On Protection of Children"</li>
+            </ul>
+            <p>7.3. Ukraine:</p>
+            <ul>
+                <li>Use for separatist activities is prohibited</li>
+                <li>Compliance with cybersecurity laws</li>
+                <li>Respect for territorial integrity</li>
+            </ul>
+            <p>7.4. Belarus:</p>
+            <ul>
+                <li>Use for destabilization of the situation is prohibited</li>
+                <li>Compliance with decrees on internet regulation</li>
+                <li>Respect for state symbols</li>
+            </ul>
+            <p>7.5. Kazakhstan:</p>
+            <ul>
+                <li>Compliance with the law "On Informatization"</li>
+                <li>Use for inciting discord is prohibited</li>
+                <li>Respect for cultural traditions</li>
+            </ul>
+            <p>7.6. Poland:</p>
+            <ul>
+                <li>Compliance with GDPR and local legislation</li>
+                <li>Use for discrimination is prohibited</li>
+                <li>Respect for historical memory</li>
+            </ul>
+            <p>7.7. Dagestan (RF):</p>
+            <ul>
+                <li>Respect for religious feelings</li>
+                <li>Inciting interethnic discord is prohibited</li>
+                <li>Compliance with traditions of the peoples of Dagestan</li>
+            </ul>
+            
+            <h3>8. DISCLAIMER OF WARRANTIES</h3>
+            <p>8.1. The Bot is provided "as is".</p>
+            <p>8.2. The Administration does not provide any warranties.</p>
+            <p>8.3. The User is aware of all risks.</p>
+            
+            <h3>9. INDEMNIFICATION</h3>
+            <p>9.1. The User agrees to compensate the Administration for damages caused by:</p>
+            <ul>
+                <li>Violation of this Agreement</li>
+                <li>Illegal use of the Bot</li>
+                <li>Actions that caused harm to the Service</li>
+            </ul>
+            
+            <h3>10. TERM CHANGES</h3>
+            <p>10.1. The Administration has the right to change this Agreement.</p>
+            <p>10.2. Changes take effect from the moment of publication.</p>
+            <p>10.3. Continued use of the Bot means acceptance of changes.</p>
+            
+            <h3>11. TERMINATION</h3>
+            <p>11.1. The User may stop using the Bot at any time.</p>
+            <p>11.2. The Administration may terminate user access in case of violation of terms.</p>
+            
+            <h3>12. NOTIFICATIONS</h3>
+            <p>12.1. All notifications are sent via Telegram.</p>
+            <p>12.2. Contacts for legal notifications:<br>
+            Telegram: @MaybeNickSupportBot</p>
+            
+            <h3>13. APPLICABLE LAW</h3>
+            <p>13.1. For users from the Russian Federation, the law of the Russian Federation applies.</p>
+            <p>13.2. For users from other countries, the law of their country of residence applies.</p>
+            <p>13.3. Disputes are resolved in accordance with the legislation of the user's country.</p>
+            
+            <h3>14. FORCE MAJEURE</h3>
+            <p>14.1. Parties are released from liability in case of force majeure.</p>
+            <p>14.2. Force majeure includes: natural disasters, wars, terrorist acts, government actions.</p>
+            
+            <h3>15. SEVERABILITY</h3>
+            <p>15.1. If any provision is found invalid, the rest remain in force.</p>
+            
+            <h3>16. ENTIRE AGREEMENT</h3>
+            <p>16.1. This Agreement represents the complete understanding between the parties.</p>
+            <p>16.2. All previous agreements become invalid.</p>
+            
+            <h3>17. ETHICAL PRINCIPLES</h3>
+            <p>17.1. The User undertakes to:</p>
+            <ul>
+                <li>Respect the privacy of others</li>
+                <li>Use information ethically</li>
+                <li>Verify data accuracy</li>
+                <li>Not cause harm to others</li>
+            </ul>
+            <p>17.2. OSINT is a tool, use it responsibly.</p>
+            
+            <h3>18. FINAL PROVISIONS</h3>
+            <p>18.1. The Agreement is valid indefinitely.</p>
+            <p>18.2. All issues not regulated by the Agreement are resolved at the discretion of the Administration.</p>
+            <p>To contact the administration: @MaybeNickSupportBot</p>
+        </div>
+        
+        <div style="text-align: center; margin: 30px;">
+            <button onclick="showLanguageSelection()" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Назад
+            </button>
+        </div>
+    </div>
+
+    <!-- Russian Content (hidden by default) -->
+    <div id="russian-content" style="display: none;">
+        <!-- Russian Privacy Policy -->
+        <h1 style="text-align: center; color: #333;">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h1>
+        <h3 style="text-align: center; color: #666;">для Maybe OSINT Bot (@MaybeNickBot)</h3>
+        
+        <div style="margin: 40px auto; max-width: 800px;">
+            <h4>Дата вступления в силу: 4 февраля 2026 года</h4>
+            
+            <h3>1. ОБЩИЕ ПОЛОЖЕНИЯ</h3>
+            <p>1.1. Maybe OSINT Bot (далее — "Бот", "Сервис") — это автоматизированный сервис для поиска публичной информации в интернете.</p>
+            <p>1.2. Администратор Бота: физическое лицо, управляющее функционированием Бота в Telegram.</p>
+            <p>1.3. Настоящая Политика конфиденциальности (далее — "Политика") определяет порядок обработки и защиты информации о пользователях Бота.</p>
+            <p>1.4. Используя Бота, вы подтверждаете свое согласие с условиями настоящей Политики.</p>
+            
+            <h3>2. СБОР ИНФОРМАЦИИ</h3>
+            <p>2.1. Бот собирает и обрабатывает следующие данные пользователей:</p>
+            <p><strong>2.1.1. Техническая информация:</strong></p>
+            <ul>
+                <li>Telegram User ID</li>
+                <li>Имя пользователя в Telegram (username)</li>
+                <li>Язык интерфейса</li>
+                <li>Дата и время запросов</li>
+                <li>IP-адрес (косвенно через Telegram API)</li>
+            </ul>
+            <p><strong>2.1.2. Операционная информация:</strong></p>
+            <ul>
+                <li>История поисковых запросов (только юзернеймы)</li>
+                <li>Количество выполненных поисков</li>
+                <li>Дата и время каждого поиска</li>
+                <li>Результаты поиска (публично доступные данные)</li>
+            </ul>
+            <p>2.2. Бот НЕ собирает:</p>
+            <ul>
+                <li>Пароли</li>
+                <li>Финансовую информацию</li>
+                <li>Личные сообщения</li>
+                <li>Контактные данные (телефоны, адреса)</li>
+                <li>Биометрические данные</li>
+                <li>Данные о местоположении</li>
+            </ul>
+            
+            <h3>3. ЦЕЛИ СБОРА ИНФОРМАЦИИ</h3>
+            <p>3.1. Собранная информация используется исключительно для:</p>
+            <ul>
+                <li>Предоставления функциональности Бота</li>
+                <li>Улучшения качества обслуживания</li>
+                <li>Статистического анализа (анонимизированного)</li>
+                <li>Предотвращения злоупотреблений</li>
+            </ul>
+            
+            <h3>4. ХРАНЕНИЕ ДАННЫХ</h3>
+            <p>4.1. Все данные хранятся на защищенных серверах.</p>
+            <p>4.2. Локальные файлы данных шифруются.</p>
+            <p>4.3. История поисков хранится максимум 200 записей на пользователя.</p>
+            <p>4.4. PDF-отчеты хранятся до 24 часов, после чего автоматически удаляются.</p>
+            <p>4.5. Пользователь может запросить удаление своих данных через обращение к администратору.</p>
+            
+            <h3>5. ОБРАБОТКА ДАННЫХ В РАЗНЫХ СТРАНАХ</h3>
+            <p>5.1. Для пользователей из Российской Федерации:</p>
+            <ul>
+                <li>Обработка данных осуществляется в соответствии с Федеральным законом №152-ФЗ "О персональных данных"</li>
+                <li>Данные хранятся на территории РФ</li>
+                <li>Пользователи имеют право на отзыв согласия на обработку персональных данных</li>
+            </ul>
+            <p>5.2. Для пользователей из США:</p>
+            <ul>
+                <li>Обработка данных осуществляется в соответствии с законодательством штата, в котором находится пользователь</li>
+                <li>Применяются принципы COPPA (Children's Online Privacy Protection Act)</li>
+                <li>Пользователи из Калифорнии имеют дополнительные права согласно CCPA</li>
+            </ul>
+            <p>5.3. Для пользователей из Украины:</p>
+            <ul>
+                <li>Обработка данных регулируется Законом Украины "О защите персональных данных"</li>
+                <li>Пользователи имеют право на доступ к своим данным и их исправление</li>
+            </ul>
+            <p>5.4. Для пользователей из Беларуси:</p>
+            <ul>
+                <li>Обработка данных осуществляется согласно Закону РБ "Об информации, информатизации и защите информации"</li>
+                <li>Соблюдаются требования по локализации данных</li>
+            </ul>
+            <p>5.5. Для пользователей из Казахстана:</p>
+            <ul>
+                <li>Применяется Закон РК "О персональных данных и их защите"</li>
+                <li>Обеспечивается конфиденциальность персональных данных</li>
+            </ul>
+            <p>5.6. Для пользователей из Польши:</p>
+            <ul>
+                <li>Обработка данных соответствует GDPR (Общему регламенту по защите данных ЕС)</li>
+                <li>Пользователи имеют расширенные права на удаление и перенос данных</li>
+            </ul>
+            <p>5.7. Для пользователей из Дагестана (Российская Федерация):</p>
+            <ul>
+                <li>Применяются те же нормы, что и для всей территории РФ</li>
+                <li>Учитываются культурные и религиозные особенности региона</li>
+            </ul>
+            
+            <h3>6. ПЕРЕДАЧА ДАННЫХ ТРЕТЬИМ ЛИЦАМ</h3>
+            <p>6.1. Бот НЕ передает данные пользователей третьим лицам, за исключением:</p>
+            <ul>
+                <li>Требований законодательства</li>
+                <li>Запросов правоохранительных органов</li>
+                <li>Защиты прав и безопасности Бота</li>
+            </ul>
+            <p>6.2. Для выполнения поиска используются только публично доступные API и сервисы.</p>
+            
+            <h3>7. БЕЗОПАСНОСТЬ</h3>
+            <p>7.1. Применяются технические меры защиты данных:</p>
+            <ul>
+                <li>Шифрование локальных файлов</li>
+                <li>Регулярное резервное копирование</li>
+                <li>Защита от DDoS-атак</li>
+                <li>Мониторинг несанкционированного доступа</li>
+            </ul>
+            <p>7.2. Доступ к данным имеют только администраторы Бота.</p>
+            
+            <h3>8. ПРАВА ПОЛЬЗОВАТЕЛЕЙ</h3>
+            <p>8.1. Каждый пользователь имеет право:</p>
+            <ul>
+                <li>На доступ к своим данным</li>
+                <li>На исправление неточных данных</li>
+                <li>На удаление своих данных</li>
+                <li>На ограничение обработки</li>
+                <li>На перенос данных</li>
+                <li>На отзыв согласия</li>
+            </ul>
+            <p>8.2. Для реализации прав необходимо обратиться к администратору: @MaybeNickSupportBot</p>
+            
+            <h3>9. COOKIES И АНАЛИТИКА</h3>
+            <p>9.1. Бот НЕ использует cookies.</p>
+            <p>9.2. Статистика собирается в анонимизированном виде.</p>
+            
+            <h3>10. ВОЗРАСТНЫЕ ОГРАНИЧЕНИЯ</h3>
+            <p>10.1. Бот предназначен для пользователей старше 13 лет.</p>
+            <p>10.2. Для пользователей от 13 до 18 лет требуется согласие родителей.</p>
+            <p>10.3. Администрация Бота не несет ответственности за использование сервиса несовершеннолетними.</p>
+            
+            <h3>11. ИЗМЕНЕНИЕ ПОЛИТИКИ</h3>
+            <p>11.1. Администрация оставляет за собой право изменять настоящую Политику.</p>
+            <p>11.2. Изменения вступают в силу с момента публикации в Боте.</p>
+            <p>11.3. При существенных изменениях пользователи будут уведомлены.</p>
+            
+            <h3>12. КОНТАКТНАЯ ИНФОРМАЦИЯ</h3>
+            <p>12.1. По вопросам, связанным с защитой данных:<br>
+            Telegram: @MaybeNickSupportBot</p>
+            
+            <h3>13. РАЗРЕШЕНИЕ СПОРОВ</h3>
+            <p>13.1. Все споры решаются путем переговоров.</p>
+            <p>13.2. При недостижении согласия спор передается в суд по месту нахождения администрации.</p>
+            <p>13.3. Применяемое право зависит от страны пользователя.</p>
+            
+            <h3>14. ЗАКЛЮЧИТЕЛЬНЫЕ ПОЛОЖЕНИЯ</h3>
+            <p>14.1. Использование Бота означает полное согласие с настоящей Политикой.</p>
+            <p>14.2. Администрация не несет ответственности за действия пользователей с полученной информацией.</p>
+            <p>14.3. Бот предназначен только для легальных целей OSINT-исследований.</p>
+            
+            <hr style="margin: 50px 0;">
+            
+            <!-- Russian Terms of Service -->
+            <h1 style="text-align: center; color: #333;">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</h1>
+            <h3 style="text-align: center; color: #666;">для Maybe OSINT Bot (@MaybeNickBot)</h3>
+            
+            <h4>Дата вступления в силу: 4 февраля 2026 года</h4>
+            
+            <h3>1. ОПРЕДЕЛЕНИЯ</h3>
+            <p>1.1. Maybe OSINT Bot (далее — "Бот", "Сервис") — автоматизированный сервис поиска публичной информации.</p>
+            <p>1.2. Пользователь - физическое лицо, использующее Бота.</p>
+            <p>1.3. Администрация - владелец и оператор Бота.</p>
+            <p>1.4. Контент - информация, получаемая в результате поиска через Бота.</p>
+            
+            <h3>2. ПРИНЯТИЕ УСЛОВИЙ</h3>
+            <p>2.1. Используя Бота, вы подтверждаете, что:</p>
+            <ul>
+                <li>Вам исполнилось 13 лет</li>
+                <li>Вы ознакомились с настоящим Соглашением</li>
+                <li>Вы согласны со всеми условиями</li>
+                <li>Вы берете на себя ответственность за использование Сервиса</li>
+            </ul>
+            <p>2.2. Если вы не согласны с условиями — немедленно прекратите использование Бота.</p>
+            
+            <h3>3. ПРАВИЛА ИСПОЛЬЗОВАНИЯ</h3>
+            <p>3.1. Разрешенные действия:</p>
+            <ul>
+                <li>Поиск публичной информации о юзернеймах</li>
+                <li>Использование результатов для легальных целей</li>
+                <li>Обращение в поддержку при проблемах</li>
+            </ul>
+            <p>3.2. Запрещенные действия:</p>
+            <ul>
+                <li>Поиск информации о несовершеннолетних без согласия родителей</li>
+                <li>Использование для преследования или травли (буллинга)</li>
+                <li>Нарушение прав интеллектуальной собственности</li>
+                <li>Автоматизированные запросы (скрапинг)</li>
+                <li>Обход ограничений и блокировок</li>
+                <li>Распространение ложной информации</li>
+                <li>Использование для мошенничества</li>
+                <li>Нарушение законов своей страны</li>
+            </ul>
+            
+            <h3>4. ОГРАНИЧЕНИЯ ДОСТУПА</h3>
+            <p>4.1. Администрация вправе ограничить доступ пользователю в случае:</p>
+            <ul>
+                <li>Нарушения настоящего Соглашения</li>
+                <li>Подозрения в противоправной деятельности</li>
+                <li>Технических проблем</li>
+                <li>Обновления Бота</li>
+            </ul>
+            <p>4.2. Блокировка может быть применена без предварительного уведомления.</p>
+            
+            <h3>5. ИНТЕЛЛЕКТУАЛЬНАЯ СОБСТВЕННОСТЬ</h3>
+            <p>5.1. Все права на Бота принадлежат Администрации.</p>
+            <p>5.2. Результаты поиска являются публичной информацией.</p>
+            <p>5.3. Запрещено коммерческое использование Бота без разрешения.</p>
+            
+            <h3>6. ОТВЕТСТВЕННОСТЬ</h3>
+            <p>6.1. Администрация НЕ гарантирует:</p>
+            <ul>
+                <li>Полноту и точность результатов</li>
+                <li>Бесперебойную работу Сервиса</li>
+                <li>Сохранность данных при сбоях</li>
+                <li>Отсутствие ошибок в отчетах</li>
+            </ul>
+            <p>6.2. Пользователь использует Бота на свой страх и риск.</p>
+            <p>6.3. Администрация не несет ответственности за:</p>
+            <ul>
+                <li>Действия пользователей с полученной информацией</li>
+                <li>Нарушения законов пользователями</li>
+                <li>Ущерб, причиненный использованием Бота</li>
+                <li>Технические проблемы у пользователя</li>
+            </ul>
+            
+            <h3>7. ОГРАНИЧЕНИЯ ПО СТРАНАМ</h3>
+            <p>7.1. США:</p>
+            <ul>
+                <li>Запрещено использование для нарушения CFAA (Computer Fraud and Abuse Act)</li>
+                <li>Соблюдение законов штата о приватности</li>
+                <li>Запрещено использование для сталкинга</li>
+            </ul>
+            <p>7.2. Россия:</p>
+            <ul>
+                <li>Соблюдение Федерального закона №149-ФЗ "Об информации"</li>
+                <li>Запрещено распространение экстремистских материалов</li>
+                <li>Соблюдение закона "О защите детей"</li>
+            </ul>
+            <p>7.3. Украина:</p>
+            <ul>
+                <li>Запрещено использование для сепаратистской деятельности</li>
+                <li>Соблюдение законов о кибербезопасности</li>
+                <li>Уважение территориальной целостности</li>
+            </ul>
+            <p>7.4. Беларусь:</p>
+            <ul>
+                <li>Запрещено использование для дестабилизации обстановки</li>
+                <li>Соблюдение декретов о интернет-регулировании</li>
+                <li>Уважение государственной символики</li>
+            </ul>
+            <p>7.5. Казахстан:</p>
+            <ul>
+                <li>Соблюдение закона "О информатизации"</li>
+                <li>Запрещено использование для разжигания розни</li>
+                <li>Уважение культурных традиций</li>
+            </ul>
+            <p>7.6. Польша:</p>
+            <ul>
+                <li>Соблюдение GDPR и местного законодательства</li>
+                <li>Запрещено использование для дискриминации</li>
+                <li>Уважение исторической памяти</li>
+            </ul>
+            <p>7.7. Дагестан (РФ):</p>
+            <ul>
+                <li>Уважение религиозных чувств</li>
+                <li>Запрещено разжигание межнациональной розни</li>
+                <li>Соблюдение традиций народов Дагестана</li>
+            </ul>
+            
+            <h3>8. ОТКАЗ ОТ ГАРАНТИЙ</h3>
+            <p>8.1. Бот предоставляется "как есть" (as is).</p>
+            <p>8.2. Администрация не дает никаких гарантий.</p>
+            <p>8.3. Пользователь осознает все риски.</p>
+            
+            <h3>9. ВОЗМЕЩЕНИЕ УБЫТКОВ</h3>
+            <p>9.1. Пользователь обязуется возместить убытки Администрации, вызванные:</p>
+            <ul>
+                <li>Нарушением настоящего Соглашения</li>
+                <li>Незаконным использованием Бота</li>
+                <li>Действиями, причинившими вред Сервису</li>
+            </ul>
+            
+            <h3>10. ИЗМЕНЕНИЕ УСЛОВИЙ</h3>
+            <p>10.1. Администрация вправе изменять настоящее Соглашение.</p>
+            <p>10.2. Изменения вступают в силу с момента публикации.</p>
+            <p>10.3. Продолжение использования Бота означает принятие изменений.</p>
+            
+            <h3>11. РАСТОРЖЕНИЕ</h3>
+            <p>11.1. Пользователь может прекратить использование Бота в любой момент.</p>
+            <p>11.2. Администрация может прекратить доступ пользователя при нарушении условий.</p>
+            
+            <h3>12. УВЕДОМЛЕНИЯ</h3>
+            <p>12.1. Все уведомления направляются через Telegram.</p>
+            <p>12.2. Контакты для юридических уведомлений:<br>
+            Telegram: @MaybeNickSupportBot</p>
+            
+            <h3>13. ПРИМЕНИМОЕ ПРАВО</h3>
+            <p>13.1. Для пользователей из РФ применяется право Российской Федерации.</p>
+            <p>13.2. Для пользователей из других стран применяется право их страны проживания.</p>
+            <p>13.3. Споры решаются в соответствии с законодательством страны пользователя.</p>
+            
+            <h3>14. ФОРС-МАЖОР</h3>
+            <p>14.1. Стороны освобождаются от ответственности при форс-мажоре.</p>
+            <p>14.2. К форс-мажору относятся: природные катаклизмы, войны, теракты, действия власти.</p>
+            
+            <h3>15. РАЗДЕЛИМОСТЬ</h3>
+            <p>15.1. Если какое-либо положение признано недействительным, остальные остаются в силе.</p>
+            
+            <h3>16. ПОЛНОТА СОГЛАШЕНИЯ</h3>
+            <p>16.1. Настоящее Соглашение представляет полную договоренность сторон.</p>
+            <p>16.2. Все предыдущие договоренности утрачивают силу.</p>
+            
+            <h3>17. ПРИНЦИПЫ ЭТИКИ</h3>
+            <p>17.1. Пользователь обязуется:</p>
+            <ul>
+                <li>Уважать частную жизнь других</li>
+                <li>Использовать информацию этично</li>
+                <li>Проверять достоверность данных</li>
+                <li>Не причинять вред другим</li>
+            </ul>
+            <p>17.2. OSINT — это инструмент, используйте его ответственно.</p>
+            
+            <h3>18. ЗАКЛЮЧИТЕЛЬНЫЕ ПОЛОЖЕНИЯ</h3>
+            <p>18.1. Соглашение действует бессрочно.</p>
+            <p>18.2. Все вопросы, не урегулированные Соглашением, решаются по усмотрению Администрации.</p>
+            <p>Для связи с администрацией: @MaybeNickSupportBot</p>
+        </div>
+        
+        <div style="text-align: center; margin: 30px;">
+            <button onclick="showLanguageSelection()" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                 Back 
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let selectedLanguage = '';
+        
+        function showContent(language) {
+            selectedLanguage = language;
+            
+            // Скрываем выбор языка
+            document.getElementById('language-selection').style.display = 'none';
+            
+            // Показываем загрузку
+            document.getElementById('loading').style.display = 'flex';
+            
+            // Ждем 1 секунду (≈1000ms)
+            setTimeout(function() {
+                // Скрываем загрузку
+                document.getElementById('loading').style.display = 'none';
+                
+                // Показываем выбранный контент
+                if (language === 'english') {
+                    document.getElementById('english-content').style.display = 'block';
+                    document.getElementById('russian-content').style.display = 'none';
+                } else if (language === 'russian') {
+                    document.getElementById('english-content').style.display = 'none';
+                    document.getElementById('russian-content').style.display = 'block';
+                }
+                
+                // Прокручиваем наверх
+                window.scrollTo(0, 0);
+            }, 1000);
+        }
+        
+        function showLanguageSelection() {
+            // Скрываем весь контент
+            document.getElementById('english-content').style.display = 'none';
+            document.getElementById('russian-content').style.display = 'none';
+            
+            // Показываем выбор языка
+            document.getElementById('language-selection').style.display = 'block';
+            
+            // Прокручиваем наверх
+            window.scrollTo(0, 0);
+        }
+        
+        // Предзагрузка гифки (если нужна конкретная гифка)
+        window.onload = function() {
+            // Если у тебя есть конкретный файл ajax_green.gif, замени ссылку ниже
+            const preloadGif = new Image();
+            preloadGif.src = 'ajax_green.gif';
+        };
+    </script>
+
+</body>
+</html>
