@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/police", "destination": "/police/index.html" },
+    { "source": "/post", "destination": "/post/index.html" },
+    { "source": "/(.*)", "destination": "/404.html" }
+  ]
+}
