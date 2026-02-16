@@ -36,7 +36,7 @@
         
         .preload { display: block; }
         .anchor {
-            scroll-margin-top: 160px; /* Увеличил отступ для учета белого блока */
+            scroll-margin-top: 110px; /* Уменьшил отступ (60px белый блок + 50px навигация) */
             display: block;
             position: relative;
             top: -60px;
@@ -118,23 +118,39 @@
         }
         
         .white-space {
-            height: 100px;
+            height: 60px; /* Уменьшил со 100px до 60px */
+            width: 100%;
+        }
+        
+        /* Стили для навигации */
+        .navbar-tg {
+            min-height: 50px; /* Фиксированная высота */
+            display: flex;
+            align-items: center; /* Центрирование по вертикали */
+        }
+        
+        .navbar-inner {
             width: 100%;
         }
         
         /* Корректировка для якорей при sticky header */
         .anchor {
-            scroll-margin-top: 160px;
+            scroll-margin-top: 110px; /* 60px + 50px */
+        }
+        
+        /* Убираем лишние отступы у навигации */
+        .navbar-static-top {
+            margin-bottom: 0;
         }
     </style>
 </head>
 <body class="preload">
     <!-- Объединенный блок шапки -->
     <div class="header-wrapper">
-        <!-- Белое пространство 100px -->
+        <!-- Белое пространство 60px -->
         <div class="white-space"></div>
         
-        <!-- Навигация -->
+        <!-- Навигация - теперь в нижней части -->
         <div class="dev_page_head navbar navbar-static-top navbar-tg">
             <div class="navbar-inner">
                 <div class="container clearfix">
