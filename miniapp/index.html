@@ -36,7 +36,7 @@
         
         .preload { display: block; }
         .anchor {
-            scroll-margin-top: 110px;
+            scroll-margin-top: 160px;
             display: block;
             position: relative;
             top: -60px;
@@ -117,25 +117,32 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            height: 110px; /* Фиксированная высота: 60px белое + 50px навигация */
+            height: 160px; /* Общая высота: 100px белое + 60px навигация */
         }
         
         .white-space {
-            height: 60px;
+            height: 100px; /* Белая полоса */
             width: 100%;
             flex-shrink: 0;
         }
         
-        /* Стили для навигации - прижимаем к низу */
+        /* Резиновый пустой div, который толкает навигацию вниз */
+        .push-down {
+            flex: 1; /* Занимает всё доступное пространство */
+            width: 100%;
+        }
+        
+        /* Стили для навигации - теперь будет в самом низу */
         .dev_page_head.navbar-tg {
-            min-height: 50px;
-            height: 50px;
+            min-height: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
-            margin-top: auto; /* Это прижимает элемент к низу flex-контейнера */
             flex-shrink: 0;
             padding: 0;
             border: none;
+            background: #ffffff; /* Белый фон */
+            border-top: 1px solid #f0f0f0; /* Легкая граница сверху для отделения */
         }
         
         .navbar-inner {
@@ -146,24 +153,26 @@
             margin-bottom: 0;
         }
         
-        /* Убираем возможные лишние отступы */
         .container {
             padding: 0 20px;
         }
         
         /* Корректировка для якорей при sticky header */
         .anchor {
-            scroll-margin-top: 110px;
+            scroll-margin-top: 160px;
         }
     </style>
 </head>
 <body class="preload">
     <!-- Объединенный блок шапки -->
     <div class="header-wrapper">
-        <!-- Белое пространство 60px -->
+        <!-- Белое пространство 100px -->
         <div class="white-space"></div>
         
-        <!-- Навигация - теперь точно в самом низу -->
+        <!-- Резиновый пустой div - толкает навигацию вниз -->
+        <div class="push-down"></div>
+        
+        <!-- Навигация - теперь гарантированно в самом низу -->
         <div class="dev_page_head navbar navbar-static-top navbar-tg">
             <div class="navbar-inner">
                 <div class="container clearfix">
