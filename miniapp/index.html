@@ -36,7 +36,7 @@
         
         .preload { display: block; }
         .anchor {
-            scroll-margin-top: 70px;
+            scroll-margin-top: 160px; /* Увеличил отступ для учета белого блока */
             display: block;
             position: relative;
             top: -60px;
@@ -106,24 +106,35 @@
         .navbar-tg .nav > li > a:after {
             background: #2A9BDF;
         }
-          .overlay-box {
-    width: 100px;
-    height: 100px;
-    background-color: white;
-    border: 1px solid #ccc;
-    
-    /* Слой поверх всего */
-    position: absolute; 
-    top: 20px;    /* Отступ сверху */
-    left: 20px;   /* Отступ слева */
-    z-index: 999; /* Чтобы быть выше всех элементов */
-                  }
+        
+        /* Новый стиль для объединенного блока */
+        .header-wrapper {
+            width: 100%;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .white-space {
+            height: 100px;
+            width: 100%;
+        }
+        
+        /* Корректировка для якорей при sticky header */
+        .anchor {
+            scroll-margin-top: 160px;
+        }
     </style>
 </head>
-<div class="overlay-box"></div>
-    <body class="preload">
-    
-    <div class="dev_page_wrap">
+<body class="preload">
+    <!-- Объединенный блок шапки -->
+    <div class="header-wrapper">
+        <!-- Белое пространство 100px -->
+        <div class="white-space"></div>
+        
+        <!-- Навигация -->
         <div class="dev_page_head navbar navbar-static-top navbar-tg">
             <div class="navbar-inner">
                 <div class="container clearfix">
@@ -142,6 +153,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    
+    <div class="dev_page_wrap">
         <div class="container clearfix">
             <div class="dev_page">
                 <div id="dev_page_content_wrap" class=" ">
