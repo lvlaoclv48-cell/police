@@ -3,57 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Maybe — Mini App</title>
+    <title>Maybe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="description" content="Maybe OSINT — бот для поиска по никнеймам">
     <meta property="og:title" content="Maybe OSINT">
     <meta property="og:description" content="Поиск никнеймов, отчёты в PDF, история запросов">
-    <link rel="icon" type="image/svg+xml" href="/miniapp/images/EKpiPWvmR1b1.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/miniapp/images/bqLYTssYy7Du.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/miniapp/images/byB0E4PxRLeY.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/miniapp/images/zlVF7eNRDk5D.png">
-    <link rel="alternate icon" href="/miniapp/images/tjKsi4vsG6a8.ico" type="image/x-icon">
-    <link href="/miniapp/puobZ34pYiz3.css" rel="stylesheet">
-    <link href="/miniapp/8P0gaKcsayJA.css" rel="stylesheet" media="screen">
+    <link rel="icon" type="image/svg+xml" href="images/EKpiPWvmR1b1.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/bqLYTssYy7Du.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/byB0E4PxRLeY.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/zlVF7eNRDk5D.png">
+    <link rel="alternate icon" href="images/tjKsi4vsG6a8.ico" type="image/x-icon">
+    <link href="/me/puobZ34pYiz3.css" rel="stylesheet">
+    <link href="/me/8P0gaKcsayJA.css" rel="stylesheet" media="screen">
     <style>
         body {
             background: var(--body-bg);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
         }
-        
-        /* Главный белый контейнер для всего сайта */
-        .site-container {
-            width: 645px;
-            background: #ffffff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Фоновое изображение сверху */
-        .top-banner {
-            width: 645px;
-            height: 250px; /* чуть меньше */
-            background-image: url('/miniapp/040.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: #ffffff;
-            flex-shrink: 0;
-        }
-        
-        /* Контентная часть */
-        .content-wrapper {
-            flex: 1;
-            padding: 20px;
-        }
-        
         .preload { display: block; }
         .anchor {
             scroll-margin-top: 70px;
@@ -126,165 +92,147 @@
         .navbar-tg .nav > li > a:after {
             background: #2A9BDF;
         }
-        
-        /* Фикс для навбара */
-        .dev_page_head {
-            background: transparent;
-            margin-bottom: 20px;
-        }
-        .navbar-tg {
-            background: transparent;
-        }
-        .container {
-            width: auto;
-            padding: 0;
-        }
     </style>
 </head>
 <body class="preload">
-    <div class="site-container">
-        <!-- Фоновое изображение сверху -->
-        <div class="top-banner"></div>
-        
-        <!-- Весь контент сайта внутри белого блока -->
-        <div class="content-wrapper">
-            <div class="dev_page_wrap">
-                <div class="dev_page_head navbar navbar-static-top navbar-tg">
-                    <div class="navbar-inner">
-                        <div class="container clearfix">
-                            <ul class="nav navbar-nav navbar-right hidden-xs">
-                                <li class="navbar-twitter">
-                                    <a href="https://t.me/perforatof" target="_blank">
-                                        <i class="icon icon-telegram"></i><span> Telegram</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav navbar-nav">
-                                <li><a href="#concept">Концепт</a></li>
-                                <li><a href="#news">Новости</a></li>
-                                <li><a href="#links">Ссылки</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
+        <!-- Белая полоса 100px -->
+    <div style="width: 100%; height: 100px; background: #ffffff;"></div>
+    
+    <div class="dev_page_wrap">
+    <div class="dev_page_wrap">
+        <div class="dev_page_head navbar navbar-static-top navbar-tg">
+            <div class="navbar-inner">
                 <div class="container clearfix">
-                    <div class="dev_page">
-                        <div id="dev_page_content_wrap" class=" ">
-                            <div class="dev_page_bread_crumbs">
-                                <ul class="breadcrumb clearfix">
-                                    <li><a href="#">Maybe »</a></li>
-                                    <li><a href="#">miniapp</a></li>
+                    <ul class="nav navbar-nav navbar-right hidden-xs">
+                        <li class="navbar-twitter">
+                            <a href="https://t.me/perforatof" target="_blank">
+                                <i class="icon icon-telegram"></i><span> Telegram</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#concept">Концепт</a></li>
+                        <li><a href="#news">Новости</a></li>
+                        <li><a href="#links">Ссылки</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container clearfix">
+            <div class="dev_page">
+                <div id="dev_page_content_wrap" class=" ">
+                    <div class="dev_page_bread_crumbs">
+                        <ul class="breadcrumb clearfix">
+                            <li><a href="#">Maybe »</a></li>
+                            <li><a href="#">bot</a></li>
+                        </ul>
+                    </div>        
+                    
+                    <h1 id="dev_page_title">Maybe OSINT — checking username</h1>
+                    
+                    <div id="dev_page_content">
+                        
+                        <span class="anchor" id="concept"></span>
+                        
+                        <h2>Концепт</h2>
+                        
+                        <blockquote>
+                            <p><strong>Maybe</strong> — это лёгкий и полностью бесплатный бот для поиска по никнеймам.</p>
+                        </blockquote>
+                        
+                        <p>* Сейчас доступен поиск только по Maigret</p>
+                        
+                        <h4>Основной функционал:</h4>
+                        <ul class="feature-list">
+                            <li><strong>Поиск никнейма</strong> — длина от 2 до 30 символов</li>
+                            <li><strong>Отчёт в PDF либо HTML</strong> — удобно сохранять и делиться</li>
+                            <li><strong>История поиска</strong> — сохраняются первые 100 и последние 100 запросов</li>
+                            <li><strong>Доступ к результатам по ссылке</strong> — формат <code>https://t.me/---?start=result_b7d38067</code></li>
+                            <li><strong>Система рангов</strong> — больше 100 «уровней»</li>
+                            <li><strong>Топ-10 пользователей</strong> — с возможностью скрыться из рейтинга</li>
+                        </ul>
+                        
+                        <h4>Планы по развитию:</h4>
+                        <ul class="feature-list">
+                            <li>Доработка существующего функционала</li>
+                            <li>Создание собственного клиента в двух вариантах:
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li> Сайт</li>
+                                    <li> Мобильное приложение</li>
                                 </ul>
-                            </div>        
-                            
-                            <h1 id="dev_page_title">Maybe OSINT — mini app</h1>
-                            
-                            <div id="dev_page_content">
-                                
-                                <span class="anchor" id="concept"></span>
-                                
-                                <h2>Концепт</h2>
-                                
-                                <blockquote>
-                                    <p><strong>Maybe</strong> — это лёгкий и полностью бесплатный бот для поиска по никнеймам.</p>
-                                </blockquote>
-                                
-                                <p>* Сейчас доступен поиск только по Maigret</p>
-                                
-                                <h4>Основной функционал:</h4>
+                            </li>
+                        </ul>
+                        
+                        <p>* Уже были проведены первые этапы разработки</p>
+                        
+                        <hr>
+                        
+                        <span class="anchor" id="news"></span>
+                        
+                        <h2>Новости</h2>
+                        
+                        <div class="news-item">
+                            <div class="news-date">4 Февраля 2026</div>
+                            <div class="news-version">Проведено 4 теста</div>
+                            <div class="news-content">
                                 <ul class="feature-list">
-                                    <li><strong>Поиск никнейма</strong> — длина от 2 до 30 символов</li>
-                                    <li><strong>Отчёт в PDF либо HTML</strong> — удобно сохранять и делиться</li>
-                                    <li><strong>История поиска</strong> — сохраняются первые 100 и последние 100 запросов</li>
-                                    <li><strong>Доступ к результатам по ссылке</strong> — формат <code>https://t.me/---?start=result_b7d38067</code></li>
-                                    <li><strong>Система рангов</strong> — больше 100 «уровней»</li>
-                                    <li><strong>Топ-10 пользователей</strong> — с возможностью скрыться из рейтинга</li>
+                                    <li>Тестирование админ панели</li>
+                                    <li>Тестирование библеотеки</li>
+                                    <li>Тестирование API</li>
+                                    <li>Тестирование API №2</li>
                                 </ul>
-                                
-                                <h4>Планы по развитию:</h4>
-                                <ul class="feature-list">
-                                    <li>Доработка существующего функционала</li>
-                                    <li>Создание собственного клиента в двух вариантах:
-                                        <ul style="margin-top: 5px; margin-left: 20px;">
-                                            <li> Сайт</li>
-                                            <li> Мобильное приложение</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <p>* Уже были проведены первые этапы разработки</p>
-                                
-                                <hr>
-                                
-                                <span class="anchor" id="news"></span>
-                                
-                                <h2>Новости</h2>
-                                
-                                <div class="news-item">
-                                    <div class="news-date">4 Февраля 2026</div>
-                                    <div class="news-version">Проведено 4 теста</div>
-                                    <div class="news-content">
-                                        <ul class="feature-list">
-                                            <li>Тестирование админ панели</li>
-                                            <li>Тестирование библеотеки</li>
-                                            <li>Тестирование API</li>
-                                            <li>Тестирование API №2</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <blockquote>
-                                    <p>Следите за обновлениями - в ближайшее время появится много интересного.</p>
-                                </blockquote>
-                                
-                                <hr>
-                                
-                                <span class="anchor" id="links"></span>
-                                
-                                <h2>Ссылки</h2>
-                                
-                                <ul class="links-list">
-                                    <li><a href="https://t.me/perforatof" target="_blank">Telegram-канал</a> — новости и анонсы</li>
-                                </ul>
-                                
-                                <hr>
-                                
-                                <p>Если есть вопросы - пишите в <a href="https://t.me/perforatof">канал</a><br></p>
                             </div>
                         </div>
+                        
+                        <blockquote>
+                            <p>Следите за обновлениями - в ближайшее время появится много интересного.</p>
+                        </blockquote>
+                        
+                        <hr>
+                        
+                        <span class="anchor" id="links"></span>
+                        
+                        <h2>Ссылки</h2>
+                        
+                        <ul class="links-list">
+                            <li><a href="https://t.me/perforatof" target="_blank">Telegram-канал</a> — новости и анонсы</li>
+                        </ul>
+                        
+                        <hr>
+                        
+                        <p>Если есть вопросы - пишите в <a href="https://t.me/perforatof">канал</a><br></p>
                     </div>
                 </div>
-                
-                <div class="footer_wrap">
-                    <div class="footer_columns_wrap footer_desktop">
-                        <div class="footer_column footer_column_telegram">
-                            <h5>Maybe</h5>
-                            <div class="footer_telegram_description"></div>
-                            Легкий и бесплатный OSINT-бот для поиска по никнеймам
-                        </div>
-                        <div class="footer_column">
-                            <h5><a href="#concept">Концепт</a></h5>
-                            <ul>
-                                <li><a href="#concept">О боте</a></li>
-                                <li><a href="#concept">Функционал</a></li>
-                                <li><a href="#concept">Планы</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer_column">
-                            <h5><a href="#news">Новости</a></h5>
-                            <ul>
-                                <li><a href="#news">Обновления</a></li>
-                                <li><a href="#news">Разработка</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer_column">
-                            <h5><a href="#links">Ссылки</a></h5>
-                            <ul>
-                                <li><a href="https://t.me/perforatof">Telegram</a></li>
-                            </ul>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        
+        <div class="footer_wrap">
+            <div class="footer_columns_wrap footer_desktop">
+                <div class="footer_column footer_column_telegram">
+                    <h5>Maybe</h5>
+                    <div class="footer_telegram_description"></div>
+                    Легкий и бесплатный OSINT-бот для поиска по никнеймам
+                </div>
+                <div class="footer_column">
+                    <h5><a href="#concept">Концепт</a></h5>
+                    <ul>
+                        <li><a href="#concept">О боте</a></li>
+                        <li><a href="#concept">Функционал</a></li>
+                        <li><a href="#concept">Планы</a></li>
+                    </ul>
+                </div>
+                <div class="footer_column">
+                    <h5><a href="#news">Новости</a></h5>
+                    <ul>
+                        <li><a href="#news">Обновления</a></li>
+                        <li><a href="#news">Разработка</a></li>
+                    </ul>
+                </div>
+                <div class="footer_column">
+                    <h5><a href="#links">Ссылки</a></h5>
+                    <ul>
+                        <li><a href="https://t.me/perforatof">Telegram</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -309,4 +257,4 @@
         });
     </script>
 </body>
-    </html>
+                                </html>
