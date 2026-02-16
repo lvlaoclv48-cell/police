@@ -36,7 +36,7 @@
         
         .preload { display: block; }
         .anchor {
-            scroll-margin-top: 110px; /* Уменьшил отступ (60px белый блок + 50px навигация) */
+            scroll-margin-top: 110px;
             display: block;
             position: relative;
             top: -60px;
@@ -115,32 +115,45 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            height: 110px; /* Фиксированная высота: 60px белое + 50px навигация */
         }
         
         .white-space {
-            height: 60px; /* Уменьшил со 100px до 60px */
+            height: 60px;
             width: 100%;
+            flex-shrink: 0;
         }
         
-        /* Стили для навигации */
-        .navbar-tg {
-            min-height: 50px; /* Фиксированная высота */
+        /* Стили для навигации - прижимаем к низу */
+        .dev_page_head.navbar-tg {
+            min-height: 50px;
+            height: 50px;
             display: flex;
-            align-items: center; /* Центрирование по вертикали */
+            align-items: center;
+            margin-top: auto; /* Это прижимает элемент к низу flex-контейнера */
+            flex-shrink: 0;
+            padding: 0;
+            border: none;
         }
         
         .navbar-inner {
             width: 100%;
         }
         
-        /* Корректировка для якорей при sticky header */
-        .anchor {
-            scroll-margin-top: 110px; /* 60px + 50px */
-        }
-        
-        /* Убираем лишние отступы у навигации */
         .navbar-static-top {
             margin-bottom: 0;
+        }
+        
+        /* Убираем возможные лишние отступы */
+        .container {
+            padding: 0 20px;
+        }
+        
+        /* Корректировка для якорей при sticky header */
+        .anchor {
+            scroll-margin-top: 110px;
         }
     </style>
 </head>
@@ -150,7 +163,7 @@
         <!-- Белое пространство 60px -->
         <div class="white-space"></div>
         
-        <!-- Навигация - теперь в нижней части -->
+        <!-- Навигация - теперь точно в самом низу -->
         <div class="dev_page_head navbar navbar-static-top navbar-tg">
             <div class="navbar-inner">
                 <div class="container clearfix">
