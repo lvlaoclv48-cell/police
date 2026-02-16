@@ -106,11 +106,22 @@
         .navbar-tg .nav > li > a:after {
             background: #2A9BDF;
         }
+          .overlay-box {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid #ccc;
+    
+    /* Слой поверх всего */
+    position: absolute; 
+    top: 20px;    /* Отступ сверху */
+    left: 20px;   /* Отступ слева */
+    z-index: 999; /* Чтобы быть выше всех элементов */
+                  }
     </style>
 </head>
-<body class="preload">
-    <!-- Белая полоса 100px САМАЯ ПЕРВАЯ -->
-    <div style="width: 100%; height: 100px; background: #ffffff;"></div>
+<div class="overlay-box"></div>
+    <body class="preload">
     
     <div class="dev_page_wrap">
         <div class="dev_page_head navbar navbar-static-top navbar-tg">
