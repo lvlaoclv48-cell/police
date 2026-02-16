@@ -94,46 +94,29 @@
             background: #2A9BDF;
         }
         
-        /* Основная белая шапка */
-        .main-header {
+        /* Контейнер для верхней части */
+        .top-section {
             background-color: #ffffff;
-            height: 100px;
-            width: 100%;
             border-bottom: 1px solid #e9edf2;
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 100;
         }
         
-        .header-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
+        .top-header {
+            padding: 20px 0 10px 0;
         }
         
-        /* Белый прямоугольник 100x100 */
-        .header-logo {
+        /* Пустой белый прямоугольник 100x100 */
+        .empty-rectangle {
             width: 100px;
             height: 100px;
             background-color: #ffffff;
             border: 2px solid #2A9BDF;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            flex-shrink: 0;
         }
         
-        /* Адаптация для мобильных устройств */
+        /* Адаптация для мобильных */
         @media (max-width: 768px) {
-            .main-header {
-                height: 80px;
-            }
-            
-            .header-logo {
+            .empty-rectangle {
                 width: 70px;
                 height: 70px;
             }
@@ -141,14 +124,17 @@
     </style>
 </head>
 <body class="preload">
-    <!-- Основная белая шапка с пустым прямоугольником 100x100 -->
-    <header class="main-header">
-        <div class="header-container">
-            <div class="header-logo"></div>
-        </div>
-    </header>
-    
     <div class="dev_page_wrap">
+        <!-- Верхняя секция с белым фоном и прямоугольником -->
+        <div class="top-section">
+            <div class="container clearfix">
+                <div class="top-header">
+                    <div class="empty-rectangle"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Навигация -->
         <div class="dev_page_head navbar navbar-static-top navbar-tg">
             <div class="navbar-inner">
                 <div class="container clearfix">
@@ -167,6 +153,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Основной контент -->
         <div class="container clearfix">
             <div class="dev_page">
                 <div id="dev_page_content_wrap" class=" ">
@@ -306,4 +294,4 @@
         });
     </script>
 </body>
-        </html>
+                </html>
