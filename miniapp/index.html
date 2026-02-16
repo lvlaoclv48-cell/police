@@ -86,6 +86,12 @@
         .links-list a:hover {
             border-bottom: 1px solid #2A9BDF;
         }
+        
+        /* Стили для шапки с навигацией */
+        .dev_page_head {
+            background-color: #ffffff !important;
+        }
+        
         .navbar-tg .nav a {
             color: #2A9BDF;
             font-weight: 500;
@@ -94,29 +100,25 @@
             background: #2A9BDF;
         }
         
-        /* Контейнер для верхней части */
-        .top-section {
+        /* Контейнер для верхней части с прямоугольником */
+        .top-bar {
             background-color: #ffffff;
             border-bottom: 1px solid #e9edf2;
+            padding: 15px 0;
         }
         
-        .top-header {
-            padding: 20px 0 10px 0;
-        }
-        
-        /* Пустой белый прямоугольник 100x100 */
-        .empty-rectangle {
+        /* Пустой прямоугольник - только рамка, без фона */
+        .empty-box {
             width: 100px;
             height: 100px;
-            background-color: #ffffff;
             border: 2px solid #2A9BDF;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background-color: transparent;
         }
         
         /* Адаптация для мобильных */
         @media (max-width: 768px) {
-            .empty-rectangle {
+            .empty-box {
                 width: 70px;
                 height: 70px;
             }
@@ -125,16 +127,14 @@
 </head>
 <body class="preload">
     <div class="dev_page_wrap">
-        <!-- Верхняя секция с белым фоном и прямоугольником -->
-        <div class="top-section">
+        <!-- Верхняя полоса с пустым прямоугольником -->
+        <div class="top-bar">
             <div class="container clearfix">
-                <div class="top-header">
-                    <div class="empty-rectangle"></div>
-                </div>
+                <div class="empty-box"></div>
             </div>
         </div>
         
-        <!-- Навигация -->
+        <!-- Навигация (та же шапка, что и была) -->
         <div class="dev_page_head navbar navbar-static-top navbar-tg">
             <div class="navbar-inner">
                 <div class="container clearfix">
@@ -294,4 +294,4 @@
         });
     </script>
 </body>
-                </html>
+    </html>
