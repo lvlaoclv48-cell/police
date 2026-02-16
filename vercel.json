@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/police", "destination": "/police/index.html" },
     { "source": "/me", "destination": "/me/index.html" },
+    { "source": "/miniapp", "destination": "/miniapp/index.html" },
     { "source": "/(.*)", "destination": "/404.html" }
   ]
 }
