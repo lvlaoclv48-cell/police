@@ -29,6 +29,24 @@
             padding: 0;
         }
         
+        /* Стили для iframe-шапки */
+        .header-container {
+            width: 100%;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: 160px;
+        }
+        
+        .header-iframe {
+            width: 100%;
+            height: 160px;
+            border: none;
+            display: block;
+        }
+        
         .dev_page_head {
             margin-top: 0;
             padding-top: 0;
@@ -36,7 +54,7 @@
         
         .preload { display: block; }
         .anchor {
-            scroll-margin-top: 160px;
+            scroll-margin-top: 170px;
             display: block;
             position: relative;
             top: -60px;
@@ -107,90 +125,157 @@
             background: #2A9BDF;
         }
         
-        /* Новый стиль для объединенного блока */
-        .header-wrapper {
-            width: 100%;
-            background: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            height: 160px; /* Общая высота: 100px белое + 60px навигация */
-        }
-        
-        .white-space {
-            height: 100px; /* Белая полоса */
-            width: 100%;
-            flex-shrink: 0;
-        }
-        
-        /* Резиновый пустой div, который толкает навигацию вниз */
-        .push-down {
-            flex: 1; /* Занимает всё доступное пространство */
-            width: 100%;
-        }
-        
-        /* Стили для навигации - теперь будет в самом низу */
-        .dev_page_head.navbar-tg {
-            min-height: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-            padding: 0;
-            border: none;
-            background: #ffffff; /* Белый фон */
-            border-top: 1px solid #f0f0f0; /* Легкая граница сверху для отделения */
-        }
-        
-        .navbar-inner {
-            width: 100%;
-        }
-        
-        .navbar-static-top {
-            margin-bottom: 0;
-        }
-        
-        .container {
-            padding: 0 20px;
-        }
-        
-        /* Корректировка для якорей при sticky header */
-        .anchor {
-            scroll-margin-top: 160px;
+        .dev_page_wrap {
+            margin-top: 0;
         }
     </style>
 </head>
 <body class="preload">
-    <!-- Объединенный блок шапки -->
-    <div class="header-wrapper">
-        <!-- Белое пространство 100px -->
-        <div class="white-space"></div>
-        
-        <!-- Резиновый пустой div - толкает навигацию вниз -->
-        <div class="push-down"></div>
-        
-        <!-- Навигация - теперь гарантированно в самом низу -->
-        <div class="dev_page_head navbar navbar-static-top navbar-tg">
-            <div class="navbar-inner">
-                <div class="container clearfix">
-                    <ul class="nav navbar-nav navbar-right hidden-xs">
-                        <li class="navbar-twitter">
-                            <a href="https://t.me/perforatof" target="_blank">
-                                <i class="icon icon-telegram"></i><span> Telegram</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav">
-                        <li><a href="#concept">Концепт</a></li>
-                        <li><a href="#news">Новости</a></li>
-                        <li><a href="#links">Ссылки</a></li>
-                    </ul>
+    <!-- Шапка в iframe с импортом CSS -->
+    <div class="header-container">
+        <iframe class="header-iframe" srcdoc='
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="utf-8">
+                <link href="/me/puobZ34pYiz3.css" rel="stylesheet">
+                <link href="/me/8P0gaKcsayJA.css" rel="stylesheet" media="screen">
+                <style>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+                    body {
+                        background: #ffffff;
+                        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                    }
+                    
+                    /* Твои оригинальные стили для шапки */
+                    .header-wrapper {
+                        width: 100%;
+                        background: #ffffff;
+                        display: flex;
+                        flex-direction: column;
+                        height: 160px;
+                    }
+                    
+                    .white-space {
+                        height: 100px;
+                        width: 100%;
+                        flex-shrink: 0;
+                    }
+                    
+                    .push-down {
+                        flex: 1;
+                        width: 100%;
+                    }
+                    
+                    /* Используем твои оригинальные классы из CSS */
+                    .dev_page_head.navbar-tg {
+                        min-height: 60px;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+                        flex-shrink: 0;
+                        padding: 0;
+                        border: none;
+                        background: #ffffff;
+                        border-top: 1px solid #f0f0f0;
+                    }
+                    
+                    .navbar-inner {
+                        width: 100%;
+                    }
+                    
+                    .container {
+                        padding: 0 20px;
+                        max-width: 900px;
+                        margin: 0 auto;
+                    }
+                    
+                    /* Переопределяем стили из твоих CSS */
+                    .navbar-tg .nav a {
+                        color: #2A9BDF;
+                        font-weight: 500;
+                        text-decoration: none;
+                    }
+                    
+                    .navbar-tg .nav > li > a:after {
+                        background: #2A9BDF;
+                    }
+                    
+                    .nav {
+                        list-style: none;
+                        display: flex;
+                        gap: 30px;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    
+                    .nav li {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    
+                    .navbar-right {
+                        float: right;
+                        list-style: none;
+                    }
+                    
+                    .navbar-twitter a {
+                        color: #2A9BDF;
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                    }
+                    
+                    .icon-telegram {
+                        display: inline-block;
+                        width: 16px;
+                        height: 16px;
+                        background: #2A9BDF;
+                        border-radius: 50%;
+                    }
+                    
+                    .clearfix::after {
+                        content: "";
+                        clear: both;
+                        display: table;
+                    }
+                    
+                    .hidden-xs {
+                        display: block;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="header-wrapper">
+                    <div class="white-space"></div>
+                    <div class="push-down"></div>
+                    <div class="dev_page_head navbar navbar-static-top navbar-tg">
+                        <div class="navbar-inner">
+                            <div class="container clearfix">
+                                <ul class="nav navbar-nav navbar-right hidden-xs">
+                                    <li class="navbar-twitter">
+                                        <a href="https://t.me/perforatof" target="_blank">
+                                            <i class="icon icon-telegram"></i><span> Telegram</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li><a href="#concept" onclick="parent.postMessage({type: &apos;scrollTo&apos;, id: &apos;concept&apos;}, &apos;*&apos;); return false;">Концепт</a></li>
+                                    <li><a href="#news" onclick="parent.postMessage({type: &apos;scrollTo&apos;, id: &apos;news&apos;}, &apos;*&apos;); return false;">Новости</a></li>
+                                    <li><a href="#links" onclick="parent.postMessage({type: &apos;scrollTo&apos;, id: &apos;links&apos;}, &apos;*&apos;); return false;">Ссылки</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </body>
+            </html>
+        '></iframe>
     </div>
     
     <div class="dev_page_wrap">
@@ -319,7 +404,20 @@
             document.body.classList.remove('preload');
         });
         
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Обработка якорей из iframe
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'scrollTo') {
+                const element = document.getElementById(event.data.id);
+                if (element) {
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+        
+        document.querySelectorAll('a[href^="#"]:not([target="_blank"])').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -333,4 +431,4 @@
         });
     </script>
 </body>
-    </html>
+            </html>
