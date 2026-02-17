@@ -4,7 +4,7 @@
     { "source": "/police", "destination": "/police/index.html" },
     { "source": "/me", "destination": "/me/index.html" },
     { "source": "/miniapp", "destination": "/miniapp/index.html" },
-    { "source": "/who", "destination": "/who/1488.html" },
+    { "source": "/mediainfo", "destination": "/mediainfo/index.html" },
     { "source": "/(.*)", "destination": "/404.html" }
   ]
 }
