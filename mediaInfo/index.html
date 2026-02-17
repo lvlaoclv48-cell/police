@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MediaInfo - Maybe Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/mediainfo.js@0.1.4/dist/mediainfo.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Веб версия MediaInfo</h1>
+        <hr>
+        <input type="file" id="file" class="file-input">
+        <button class="btn" onclick="analyze()">анализ</button>
+        <button class="btn" onclick="clearAll()">очистить</button>
+        
+        <div id="loading" class="loading" style="display:none">загрузка</div>
+        <div id="results" class="results" style="display:none">
+            <pre id="output" style="color:#0F0; background:#000; padding:10px; border:1px solid #333;"></pre>
+        </div>
+        
+        <hr>
+        <div class="footer"><a href="#" onclick="window.location.reload()">обновить</a></div>
+    </div>
+
+    <script>
+        let fileInput = document.getElementById('file');
+        let loading = document.getElementById('loading');
+        let results = document.getElementById('results');
+        let output = document.getElementById('output');
+
+        async function analyze() {
+            if (!fileInput.files[0]) return alert('выберите файл');
+            
+            loading.style.display = 'block';
+            results.style.display = 'none';
+            
+            const buffer = await fileInput.files[0].arrayBuffer();
+            const mediainfo = await MediaInfo({ format: 'text' });
+            const info = await mediainfo.analyzeData(() => buffer.byteLength, () => new Uint8Array(buffer));
+            
+            output.textContent = info;
+            loading.style.display = 'none';
+            results.style.display = 'block';
+        }
+
+        function clearAll() {
+            fileInput.value = '';
+            results.style.display = 'none';
+            loading.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
