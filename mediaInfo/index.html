@@ -5,6 +5,8 @@
     <title>MediaInfo - Maybe Tool</title>
     <link rel="stylesheet" href="/mediaInfo/style.css">
     <script src="https://unpkg.com/mediainfo.js@0.1.4/dist/mediainfo.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exifr@7.1.3/dist/exifr.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 </head>
 <body>
     <div class="container">
@@ -16,25 +18,356 @@
         
         <div id="loading" class="loading" style="display:none">загрузка</div>
         <div id="results" class="results" style="display:none">
-            <pre id="output" style="color:#0F0; background:#000; padding:10px; border:1px solid #333;"></pre>
+            <div id="search-buttons" style="margin-bottom: 10px; display: flex; gap: 5px; flex-wrap: wrap; justify-content: center;"></div>
+            <pre id="output" style="color:#0F0; background:#000; padding:10px; border:1px solid #333; white-space: pre-wrap; word-wrap: break-word; font-size: 12px;"></pre>
         </div>
         
         <hr>
-        <div class="footer"><a href="#" onclick="window.location.reload()">обновить</a></div>
+        <div class="footer"><a href="https://maybebot.icu/me" target="_blank">Бот</a></div>
     </div>
+
+    <style>
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            .file-input {
+                width: 100%;
+                margin: 10px 0;
+                padding: 12px;
+                font-size: 16px;
+                box-sizing: border-box;
+            }
+            .btn {
+                width: 48%;
+                padding: 15px;
+                font-size: 16px;
+                margin: 5px 1%;
+                box-sizing: border-box;
+            }
+            #output {
+                font-size: 11px;
+            }
+            .search-btn {
+                flex: 1;
+                min-width: 120px;
+                max-width: 150px;
+                padding: 10px;
+                background: #1e3c72;
+                color: white;
+                border: 1px solid #0a1a2f;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .search-btn:hover {
+                background: #2a4f8a;
+            }
+        }
+    </style>
 
     <script>
         let fileInput = document.getElementById('file');
         let loading = document.getElementById('loading');
         let results = document.getElementById('results');
         let output = document.getElementById('output');
+        let searchButtons = document.getElementById('search-buttons');
+
+        function createSearchButtons() {
+            searchButtons.innerHTML = '';
+            
+            const services = [
+                { 
+                    name: 'Google Lens', 
+                    url: 'https://lens.google.com/upload'
+                },
+                { 
+                    name: 'Yandex', 
+                    url: 'https://yandex.com/images/search?rpt=imageview'
+                }
+            ];
+
+            services.forEach(service => {
+                const btn = document.createElement('button');
+                btn.className = 'search-btn';
+                btn.textContent = service.name;
+                
+                btn.onclick = function() {
+                    window.open(service.url, '_blank');
+                };
+                
+                searchButtons.appendChild(btn);
+            });
+        }
+
+        function stripHTML(html) {
+            if (!html || typeof html !== 'string') return html;
+            
+            let text = html
+                .replace(/<style[^>]*>.*?<\/style>/gis, '')
+                .replace(/<script[^>]*>.*?<\/script>/gis, '')
+                .replace(/<[^>]+>/g, ' ')
+                .replace(/&nbsp;/g, ' ')
+                .replace(/&amp;/g, '&')
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&quot;/g, '"')
+                .replace(/&#39;/g, "'")
+                .replace(/\s+/g, ' ')
+                .trim();
+            
+            return text;
+        }
+
+        function parseJSONWithFix(str) {
+            try {
+                let fixed = str
+                    .replace(/'/g, '"')
+                    .replace(/(\w+):/g, '"$1":')
+                    .replace(/,(\s*[}\]])/g, '$1');
+                return JSON.parse(fixed);
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function extractKeyValuePairs(text) {
+            let result = {};
+            let lines = text.split('\n');
+            
+            lines.forEach(line => {
+                let match = line.match(/\s*([^:]+?)\s*:\s*(.+?)\s*$/);
+                if (match && match[1] && match[2]) {
+                    let key = match[1].trim().replace(/\s+/g, '_');
+                    let value = match[2].trim();
+                    if (value && !value.startsWith('<') && !key.includes('http')) {
+                        result[key] = value;
+                    }
+                }
+            });
+            
+            return result;
+        }
 
         async function analyze() {
             if (!fileInput.files[0]) return alert('выберите файл');
             
             loading.style.display = 'block';
             results.style.display = 'none';
+            searchButtons.innerHTML = '';
             
+            try {
+                const file = fileInput.files[0];
+                const buffer = await file.arrayBuffer();
+                
+                let allData = '';
+                let allKeyValues = {};
+
+                const mediaInfoFormats = [
+                    { format: 'text', complete: true, full: true },
+                    { format: 'JSON', full: true, complete: true },
+                    { format: 'XML', full: true },
+                    { format: 'HTML', full: true },
+                    { format: 'EBUCore' },
+                    { format: 'PBCore' },
+                    { format: 'CSV' }
+                ];
+                
+                for (const opts of mediaInfoFormats) {
+                    try {
+                        const mediainfo = await MediaInfo(opts);
+                        const info = await mediainfo.analyzeData(
+                            () => buffer.byteLength,
+                            () => new Uint8Array(buffer)
+                        );
+                        
+                        if (info && info.length > 0) {
+                            if (opts.format === 'HTML') {
+                                let cleaned = stripHTML(info)
+                                    .split('\n')
+                                    .filter(l => l.trim() && !l.includes('http') && !l.startsWith('<'))
+                                    .join('\n');
+                                allData += '\n' + cleaned + '\n';
+                                
+                                let kv = extractKeyValuePairs(cleaned);
+                                Object.assign(allKeyValues, kv);
+                            } else if (opts.format === 'JSON') {
+                                try {
+                                    let json = JSON.parse(info);
+                                    allData += '\n' + JSON.stringify(json, null, 2) + '\n';
+                                    
+                                    if (json.media && json.media.track) {
+                                        json.media.track.forEach(track => {
+                                            Object.entries(track).forEach(([k, v]) => {
+                                                if (k !== '@type' && v && typeof v === 'string') {
+                                                    allKeyValues[k] = v;
+                                                }
+                                            });
+                                        });
+                                    }
+                                } catch (e) {
+                                    let fixed = parseJSONWithFix(info);
+                                    if (fixed) {
+                                        allData += '\n' + JSON.stringify(fixed, null, 2) + '\n';
+                                    } else {
+                                        allData += '\n' + info + '\n';
+                                    }
+                                }
+                            } else if (opts.format === 'XML' || opts.format === 'EBUCore' || opts.format === 'PBCore') {
+                                let text = info
+                                    .replace(/<[^>]+>/g, ' ')
+                                    .replace(/\s+/g, ' ')
+                                    .trim();
+                                allData += '\n' + text + '\n';
+                            } else {
+                                allData += '\n' + info + '\n';
+                            }
+                        }
+                    } catch (e) {}
+                }
+
+                try {
+                    const exifData = await exifr.parse(buffer, {
+                        tiff: true,
+                        exif: true,
+                        gps: true,
+                        interop: true,
+                        xmp: true,
+                        icc: true,
+                        iptc: true,
+                        jfif: true,
+                        ihdr: true
+                    });
+                    
+                    if (exifData) {
+                        allData += '\n=== EXIF FULL DATA ===\n';
+                        
+                        const flattenObject = (obj, prefix = '') => {
+                            for (let key in obj) {
+                                if (obj[key] && typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+                                    flattenObject(obj[key], prefix + key + '_');
+                                } else {
+                                    let value = obj[key];
+                                    if (value && typeof value === 'string' && value.includes('"')) {
+                                        try {
+                                            let parsed = JSON.parse('{' + value + '}');
+                                            allData += prefix + key + ': ' + JSON.stringify(parsed, null, 2) + '\n';
+                                            
+                                            Object.entries(parsed).forEach(([k, v]) => {
+                                                allKeyValues[prefix + key + '_' + k] = v;
+                                            });
+                                        } catch (e) {
+                                            allData += prefix + key + ': ' + value + '\n';
+                                            allKeyValues[prefix + key] = value;
+                                        }
+                                    } else {
+                                        allData += prefix + key + ': ' + value + '\n';
+                                        allKeyValues[prefix + key] = value;
+                                    }
+                                }
+                            }
+                        };
+                        
+                        flattenObject(exifData);
+                    }
+                } catch (e) {}
+
+                try {
+                    const gps = await exifr.gps(buffer);
+                    if (gps) {
+                        allData += '\n=== GPS ===\n';
+                        Object.entries(gps).forEach(([k, v]) => {
+                            allData += k + ': ' + v + '\n';
+                            allKeyValues['GPS_' + k] = v;
+                        });
+                        
+                        if (gps.latitude && gps.longitude) {
+                            allData += 'Google Maps: https://www.google.com/maps?q=' + gps.latitude + ',' + gps.longitude + '\n';
+                        }
+                    }
+                } catch (e) {}
+
+                try {
+                    const xmp = await exifr.xmp(buffer);
+                    if (xmp) {
+                        allData += '\n=== XMP ===\n';
+                        Object.entries(xmp).forEach(([k, v]) => {
+                            if (v && typeof v === 'object') {
+                                allData += k + ': ' + JSON.stringify(v) + '\n';
+                                allKeyValues['XMP_' + k] = JSON.stringify(v);
+                            } else {
+                                allData += k + ': ' + v + '\n';
+                                allKeyValues['XMP_' + k] = v;
+                            }
+                        });
+                    }
+                } catch (e) {}
+
+                try {
+                    const iptc = await exifr.iptc(buffer);
+                    if (iptc) {
+                        allData += '\n=== IPTC ===\n';
+                        Object.entries(iptc).forEach(([k, v]) => {
+                            allData += k + ': ' + v + '\n';
+                            allKeyValues['IPTC_' + k] = v;
+                        });
+                    }
+                } catch (e) {}
+
+                const markers = ['exif', 'gps', 'hdr', 'sensor', 'rear', 'front', 'camera', 'model', 'make', 'opmode', 'ais', 'android', 'jpeg', 'latitude', 'longitude', 'altitude'];
+                const str = new TextDecoder().decode(buffer.slice(0, Math.min(50000, buffer.byteLength)));
+                
+                allData += '\n=== RAW MARKERS ===\n';
+                markers.forEach(marker => {
+                    if (str.toLowerCase().includes(marker)) {
+                        allData += 'found: ' + marker + '\n';
+                        
+                        let regex = new RegExp('.{0,50}' + marker + '.{0,50}', 'gi');
+                        let matches = str.match(regex);
+                        if (matches) {
+                            matches.forEach(match => {
+                                let clean = match.replace(/[^\x20-\x7E]/g, '');
+                                if (clean.length > 10) {
+                                    allData += '  ...' + clean + '...\n';
+                                }
+                            });
+                        }
+                    }
+                });
+
+                allData += '\n=== ALL KEY-VALUE ===\n';
+                Object.entries(allKeyValues).sort().forEach(([k, v]) => {
+                    if (v && v.toString().length < 200) {
+                        allData += k + ': ' + v + '\n';
+                    }
+                });
+
+                const lines = allData.split('\n').filter((v, i, a) => a.indexOf(v) === i);
+                output.textContent = lines.join('\n');
+                
+                createSearchButtons();
+                
+            } catch (error) {
+                output.textContent = 'Ошибка анализа: ' + error.message;
+            }
+            
+            loading.style.display = 'none';
+            results.style.display = 'block';
+        }
+
+        function clearAll() {
+            fileInput.value = '';
+            results.style.display = 'none';
+            loading.style.display = 'none';
+            searchButtons.innerHTML = '';
+        }
+    </script>
+</body>
+</html>            
             const buffer = await fileInput.files[0].arrayBuffer();
             const mediainfo = await MediaInfo({ format: 'text' });
             const info = await mediainfo.analyzeData(() => buffer.byteLength, () => new Uint8Array(buffer));
