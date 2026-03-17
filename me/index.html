@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <title>Maybe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="description" content="Maybe OSINT — бот для поиска по никнеймам">
-    <meta property="og:title" content="Maybe OSINT">
-    <meta property="og:description" content="Поиск никнеймов, отчёты в PDF, история запросов">
+    <meta property="description" content="Maybe — бот для поиска по никнеймам">
+    <meta property="og:title" content="Maybe">
+    <meta property="og:description" content="Поиск регистраций с таким юзернеймом">
     <link rel="icon" type="image/svg+xml" href="images/EKpiPWvmR1b1.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="images/bqLYTssYy7Du.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/byB0E4PxRLeY.png">
@@ -101,7 +101,7 @@
                     <ul class="nav navbar-nav navbar-right hidden-xs">
                         <li class="navbar-twitter">
                             <a href="https://t.me/perforatof" target="_blank">
-                                <i class="icon icon-telegram"></i><span> Telegram</span>
+                                <i class="icon"></i><span> Telegram</span>
                             </a>
                         </li>
                     </ul>
@@ -118,12 +118,12 @@
                 <div id="dev_page_content_wrap" class=" ">
                     <div class="dev_page_bread_crumbs">
                         <ul class="breadcrumb clearfix">
-                            <li><a href="#">Maybe »</a></li>
-                            <li><a href="#">bot</a></li>
+                            <li><a href="#concept">Home »</a></li>
+                            <li><a href="#links">bot</a></li>
                         </ul>
                     </div>        
                     
-                    <h1 id="dev_page_title">Maybe OSINT — checking username</h1>
+                    <h1 id="dev_page_title">Maybe — checking username</h1>
                     
                     <div id="dev_page_content">
                         
@@ -132,15 +132,15 @@
                         <h2>Концепт</h2>
                         
                         <blockquote>
-                            <p><strong>Maybe</strong> — это лёгкий и полностью бесплатный бот для поиска по никнеймам.</p>
+                            <p><strong>Maybe</strong> — это лёгкий и полностью бесплатный бот для поиска регистраций</p>
                         </blockquote>
                         
-                        <p>* Сейчас доступен поиск только по Maigret</p>
+                        <p>* В боте доступен поиск только по Maigret</p>
                         
                         <h4>Основной функционал:</h4>
                         <ul class="feature-list">
                             <li><strong>Поиск никнейма</strong> — длина от 2 до 30 символов</li>
-                            <li><strong>Отчёт в PDF либо HTML</strong> — удобно сохранять и делиться</li>
+                            <li><strong>Отчёт в PDF</strong> — удобно сохранять и делиться</li>
                             <li><strong>История поиска</strong> — сохраняются первые 100 и последние 100 запросов</li>
                             <li><strong>Доступ к результатам по ссылке</strong> — формат <code>https://t.me/---?start=result_b7d38067</code></li>
                             <li><strong>Система рангов</strong> — больше 100 «уровней»</li>
@@ -150,28 +150,40 @@
                         <h4>Планы по развитию:</h4>
                         <ul class="feature-list">
                             <li>Доработка существующего функционала</li>
-                            <li>Создание собственного клиента в двух вариантах:
+                            <li>Создание собственного клиента в виде:
                                 <ul style="margin-top: 5px; margin-left: 20px;">
-                                    <li> Сайт</li>
                                     <li> Мобильное приложение</li>
+                                    <li> .exe</li>
                                 </ul>
                             </li>
                         </ul>
                         
-                        <p>* Уже были проведены первые этапы разработки</p>
+                        <p>* Ведётся активная разработка</p>
                         
                         <hr>
                         
                         <span class="anchor" id="news"></span>
                         
                         <h2>Новости</h2>
-                        
-                        <!-- Новая яркая новость (21 Февраля 2026) -->
+                
                         <div class="news-item" style="border-bottom: 2px solid #2A9BDF; background: linear-gradient(to right, rgba(42,155,223,0.02), transparent); padding: 20px; margin: 0 -20px 30px -20px;">
-                            <div class="news-date" style="color: #2A9BDF; font-weight: 600;">21 Февраля 2026</div>
-                            <div class="news-version" style="color: #0a1a2a; font-size: 28px;">Был проведён публичный тест</div>
+                            <div class="news-date" style="color: #2A9BDF; font-weight: 600;">13 Марта 2026</div>
+                            <div class="news-version" style="color: #0a1a2a; font-size: 28px;">Разработка клиента и доработка бота</div>
                             <div class="news-content">
                                 <ul class="feature-list" style="margin-bottom: 0;">
+                                    <li>Добавлен новый раздел "О боте"</li>
+                                    <li>Исправлены ошибки при рассылки</li>
+                                    <li>Сделан API для поиска через приложение</li>
+                                    <li>Реализована регистрация в клиенте через бота</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="news-item" style="opacity: 0.5; filter: grayscale(0.3); border-bottom: 1px solid #e0e0e0;">
+                            <div class="news-date" style="color: #999;">21 Февраля 2026</div>
+                            <div class="news-version" style="color: #666; font-size: 22px;">Был проведён публичный тест</div>
+                            <div class="news-content">
+                                <ul class="feature-list" style="color: #777;">
                                     <li>Выявлено 10 ошибок</li>
                                     <li>Улучшена админ панель</li>
                                     <li>Улучшена система банов</li>
@@ -179,12 +191,11 @@
                             </div>
                         </div>
                         
-                        <!-- Прошлая новость (20 Февраля 2026) - теперь приглушённая -->
-                        <div class="news-item" style="opacity: 0.5; filter: grayscale(0.3); border-bottom: 1px solid #e0e0e0;">
-                            <div class="news-date" style="color: #999;">20 Февраля 2026</div>
-                            <div class="news-version" style="color: #666; font-size: 22px;">Публичный тест скоро!</div>
+                        <div class="news-item" style="opacity: 0.3; filter: grayscale(0.5); border-bottom: 1px solid #e0e0e0;">
+                            <div class="news-date" style="color: #bbb;">20 Февраля 2026</div>
+                            <div class="news-version" style="color: #888; font-size: 22px;">Публичный тест скоро!</div>
                             <div class="news-content">
-                                <ul class="feature-list" style="color: #777;">
+                                <ul class="feature-list" style="color: #999;">
                                     <li>Добавлена система бекапов</li>
                                     <li>Добавлена функция рассылки</li>
                                     <li>Исправлены мелкие баги</li>
@@ -193,12 +204,11 @@
                             </div>
                         </div>
                         
-                        <!-- Ещё более старая новость (4 Февраля 2026) - ещё сильнее приглушена -->
-                        <div class="news-item" style="opacity: 0.3; filter: grayscale(0.5); border-bottom: 1px solid #e0e0e0; margin-top: -10px;">
-                            <div class="news-date" style="color: #bbb;">4 Февраля 2026</div>
-                            <div class="news-version" style="color: #888; font-size: 20px;">Проведено 4 теста</div>
+                        <div class="news-item" style="opacity: 0.2; filter: grayscale(0.7); border-bottom: 1px solid #e0e0e0; margin-top: -10px;">
+                            <div class="news-date" style="color: #ccc;">4 Февраля 2026</div>
+                            <div class="news-version" style="color: #aaa; font-size: 20px;">Проведено 4 теста</div>
                             <div class="news-content">
-                                <ul class="feature-list" style="color: #999;">
+                                <ul class="feature-list" style="color: #bbb;">
                                     <li>Тестирование админ панели</li>
                                     <li>Тестирование библеотеки</li>
                                     <li>Тестирование API</li>
@@ -219,11 +229,20 @@
                         
                         <ul class="links-list">
                             <li><a href="https://t.me/perforatof" target="_blank">Telegram-канал</a> — новости и анонсы</li>
+                            <li><a href="https://teletype.in/@maybebot.icu/3-MtcjWzXi4" target="_blank">FAQ</a> — ответы на вопросы</li>
+                            <li><a href="https://teletype.in/@maybebot.icu/Instructions" target="_blank">Инструкция</a> — пример использования бота</li>
+                            <li><a href="https://maybebot.icu/mediaInfo" target="_blank">MediaInfo</a> — веб-инструмент для извлечения скрытой информации из медиа</li>
+                            <li><a href="https://maybebot.icu" target="_blank">Bot</a> — вечная ссылка на бота</li>
+                            <li><a href="http://t.me/send?start=IVWRBLUeiACb" target="_blank">Поддержка</a> — кинуть денюшку разработчику</li>
+                            <li><a href="https://t.me/boost/perforatof" target="_blank">Boost</a> — поддержать разработчика</li>
+                        </ul>
+                        </ul>
+                        </ul>
                         </ul>
                         
                         <hr>
                         
-                        <p>Если есть вопросы - пишите в <a href="https://t.me/perforatof">канал</a><br></p>
+                        <p>Если есть вопросы - пишите в <a href="https://t.me/+wUjpmwljLqI0Mjli">чат</a><br></p>
                     </div>
                 </div>
             </div>
