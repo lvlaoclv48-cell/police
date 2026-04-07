@@ -6,6 +6,12 @@
     { "source": "/miniapp", "destination": "/miniapp/index.html" },
     { "source": "/rep", "destination": "/rep/index.html" },
     { "source": "/mediainfo", "destination": "/mediainfo/index.html" },
+    
+    {
+      "source": "/graph/:path*",
+      "destination": "/graph/:path*"
+    },
+    
     { "source": "/(.*)", "destination": "/404.html" }
   ]
 }
