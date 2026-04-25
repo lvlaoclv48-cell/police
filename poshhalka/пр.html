@@ -18,10 +18,46 @@
             max-height: 100vh;
             object-fit: contain;
         }
+        .error-msg {
+            color: red;
+            font-family: monospace;
+            font-size: 20px;
+            text-align: center;
+            background: black;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
-    <img src="привет.jpg" alt="image">
-    <audio src="напиши_fullfar.mp3" autoplay loop></audio>
+    <img src="привет.jpg" alt="image" onerror="this.style.display='none'; document.getElementById('error').style.display='block'">
+    <div id="error" class="error-msg" style="display:none">
+        Идинахуй
+    </div>
+    <audio id="bgMusic" src="напиши_fullfar.mp3" loop></audio>
+
+    <script>
+        var music = document.getElementById('bgMusic');
+        var playStarted = false;
+
+        function startMusic() {
+            if (!playStarted) {
+                music.play().catch(function(e) {
+                    console.log("Кликни блин");
+                });
+                playStarted = true;
+                document.removeEventListener('click', startMusic);
+                document.removeEventListener('touchstart', startMusic);
+            }
+        }
+
+        
+        music.play().then(function() {
+            playStarted = true;
+        }).catch(function() {
+        
+            document.addEventListener('click', startMusic);
+            document.addEventListener('touchstart', startMusic);
+        });
+    </script>
 </body>
 </html>
