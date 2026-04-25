@@ -6,7 +6,7 @@
     { "source": "/miniapp", "destination": "/miniapp/index.html" },
     { "source": "/rep", "destination": "/rep/index.html" },
     { "source": "/mediainfo", "destination": "/mediainfo/index.html" },
-    { "source": "/пр", "destination": "poshhalka/пр.html" },
+    { "source": "/404", "destination": "/poshhalka/пр.html" },
     
     
     {
