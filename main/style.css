@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: #ccc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.zag {
+    margin-bottom: 40px;
+}
+
+.logo h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.logo p {
+    color: #777;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.card {
+    background: #111;
+    border-radius: 20px;
+    border: 1px solid #2a2a2a;
+    padding: 40px 30px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+    background: #1a1a1a;
+    color: #aaa;
+    border: 1px solid #2e2e2e;
+}
+
+.btn:hover {
+    background: #222;
+    color: #fff;
+    border-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.btn-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #666;
+    transition: color 0.25s ease;
+}
+
+.btn:hover .btn-icon {
+    color: #fff;
+}
+
+.info {
+    color: #555;
+    font-size: 0.85rem;
+    margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+    .logo h1 {
+        font-size: 2.2rem;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+}
