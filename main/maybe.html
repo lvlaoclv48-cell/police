@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Подождите немного..</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/main/style.css">
     <style>
         #health-spinner {
             position: fixed;
@@ -70,7 +70,7 @@
                 const data = await response.json();
 
                 if (data && data.status === 'ok') {
-                    const pageResponse = await fetch('/page-content.html');
+                    const pageResponse = await fetch('/main/page-content.html');
                     if (!pageResponse.ok) throw new Error('Page content not found');
                     
                     const html = await pageResponse.text();
