@@ -14,7 +14,7 @@
         const data = await response.json();
 
         if (data && data.status === 'ok') {
-            const pageResponse = await fetch('/page-content.html');
+            const pageResponse = await fetch('/main/page-content.html');
             if (!pageResponse.ok) throw new Error('Page content not found');
             
             const html = await pageResponse.text();
