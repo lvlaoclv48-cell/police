@@ -4,11 +4,19 @@
     const errorMessage = document.getElementById('error-message');
 
     try {
-        const response = await fetch('https://graph.maybebot.icu/health');
+        const response = await fetch('https://graph.maybebot.icu/health', {
+            method: 'GET',
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) throw new Error('Health check failed');
+
         const data = await response.json();
 
         if (data && data.status === 'ok') {
-            const pageResponse = await fetch('/page-content.html');
+            const pageResponse = await fetch('page-content.html');
+            if (!pageResponse.ok) throw new Error('Page content not found');
+            
             const html = await pageResponse.text();
             mainContent.innerHTML = html;
             mainContent.style.display = 'block';
